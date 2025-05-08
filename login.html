@@ -2,6 +2,7 @@
 <html lang="ar">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>تسجيل الدخول</title>
   <style>
     body {
@@ -36,12 +37,12 @@
 
     function checkCode() {
       const code = document.getElementById('code').value;
-      if (code === "1234") {
-        // إرسال الإيميل
+      if (code === "1234") {  // الكود الصحيح
+        // إرسال الإيميل عند نجاح التحقق
         sendEmailNotification();
 
         // الانتقال لصفحة المتجر
-        window.location.href = "store.html"; // هيروح لصفحة المتجر
+        window.location.href = "store.html"; // التحويل لصفحة المتجر
       } else {
         alert("الكود غير صحيح");
       }
@@ -51,7 +52,7 @@
     function sendEmailNotification() {
       var templateParams = {
         user_email: "somayakassem55@example.com",  // استبدل بإيميلك
-        subject: "كود تم استخدامه",
+        subject: "تم استخدام الكود بنجاح",
         message: "تم استخدام الكود 1234 من قبل مستخدم."
       };
 
