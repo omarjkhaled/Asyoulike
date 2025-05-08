@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>تسجيل الدخول</title>
+  <style>
+    body {
+      background-color: #f1f1f1;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 100px;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      width: 200px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>أدخل الكود للدخول</h1>
+  <input type="text" id="code" placeholder="أدخل الكود">
+  <br>
+  <button onclick="checkCode()">دخول</button>
+
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script> <!-- تحميل مكتبة EmailJS -->
+  <script>
+    emailjs.init("user_R1HfLr9GvEx1FxLJExFgQ"); // استبدل بـ User ID الخاص بك
+
+    function checkCode() {
+      const code = document.getElementById('code').value;
+      if (code === "1234") {
+        // إرسال الإيميل
+        sendEmailNotification();
+
+        // الانتقال لصفحة المتجر
+        window.location.href = "store.html"; // هيروح لصفحة المتجر
+      } else {
+        alert("الكود غير صحيح");
+      }
+    }
+
+    // إرسال إشعار عبر EmailJS
+    function sendEmailNotification() {
+      var templateParams = {
+        user_email: "somayakassem55@example.com",  // استبدل بإيميلك
+        subject: "كود تم استخدامه",
+        message: "تم استخدام الكود 1234 من قبل مستخدم."
+      };
+
+      emailjs.send("service_dn4pmqd", "template_xxxxx", templateParams)  // استبدل بـ Template ID
+        .then(function(response) {
+          console.log("تم إرسال الإيميل بنجاح:", response);
+        }, function(error) {
+          console.log("خطأ في إرسال الإيميل:", error);
+        });
+    }
+  </script>
+
+</body>
+</html>
