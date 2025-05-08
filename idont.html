@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>المتجر</title>
+  <style>
+    body {
+      font-family: Arial;
+      direction: rtl;
+      padding: 20px;
+    }
+    .product {
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 10px;
+      background-color: green;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>مرحبا بك في المتجر</h1>
+
+  <div class="product">
+    <h3>تيشيرت أبيض</h3>
+    <button onclick="buy('تيشيرت أبيض')">اشتري</button>
+  </div>
+
+  <div class="product">
+    <h3>بنطلون جينز</h3>
+    <button onclick="buy('بنطلون جينز')">اشتري</button>
+  </div>
+
+  <div class="product">
+    <h3>جاكيت شتوي</h3>
+    <button onclick="buy('جاكيت شتوي')">اشتري</button>
+  </div>
+
+  <div class="product">
+    <h3>حذاء رياضي</h3>
+    <button onclick="buy('حذاء رياضي')">اشتري</button>
+  </div>
+
+  <script>
+    // لو المستخدم دخل بدون الكود
+    if (localStorage.getItem("usedCode") !== "true") {
+      alert("يجب تسجيل الدخول أولًا!");
+      window.location.href = "index.html";
+    }
+
+    function buy(product) {
+      alert("تم طلب " + product + " بنجاح!");
+    }
+  </script>
+
+</body>
+</html>

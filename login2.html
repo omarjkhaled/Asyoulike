@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>تسجيل الدخول</title>
+  <style>
+    body {
+      background-color: #f1f1f1;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 100px;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>أدخل الكود للدخول</h1>
+  <input type="text" id="code" placeholder="أدخل الكود">
+  <br>
+  <button onclick="checkCode()">دخول</button>
+
+  <script>
+    function checkCode() {
+      const code = document.getElementById('code').value;
+      if (code === "service_dn4pmqd") {
+        // مسموح الدخول
+        localStorage.setItem("usedCode", "true");
+        window.location.href = "store.html";
+      } else {
+        alert("الكود غير صحيح");
+      }
+    }
+  </script>
+
+</body>
+</html>
